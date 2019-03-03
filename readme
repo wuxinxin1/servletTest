@@ -1,0 +1,9 @@
+#主要作用是研究servlet相关笔记
+
+1.关于会话问题：
+  原理:
+  服务器  1.在设置服务器端进行设置session操作的时候，会在服务器端分配一块内存，然后返回一个sessionId;
+          2.服务器会设置一个cookie(Set-Cookie: JSESSIONID=E88B6494847F97859BDFF2440A5D91C6; Path=/; HttpOnly),cook就是那个sessionId
+  浏览器  1.浏览器在接受到响应的时候，会把cookie缓存起来，默认生命周期是浏览器关闭前
+          2.当浏览器登陆后（通过设置session后），会每次请求都会携带sessionId(Cookie: JSESSIONID=E88B6494847F97859BDFF2440A5D91C6),
+            服务器机会通过这个sessionId找到这个对应的用户相应信息，从而实现登录功能
